@@ -37,6 +37,7 @@ class Game
       puts 'Area is outside the board.'
     elsif board[index.to_i - 1] == ' '
       board[index.to_i - 1] = @player
+      system('clear') || system('cls')
       end_turn
     else
       puts 'Area is used by another player.'
@@ -105,7 +106,7 @@ board = Board.new
 game = Game.new
 
 puts 'Welcome to Tic Tac Toe! (Or Noughts and Crosses, the world cannot decide.)'
-puts 'The board is layed out in this format:'
+puts 'The board is laid out in this format:'
 puts '123'
 puts '456'
 puts '789'
