@@ -101,29 +101,30 @@ class Game
     end
   end
 end
+if __FILE__ == $0
+  board = Board.new
+  game = Game.new
 
-board = Board.new
-game = Game.new
+  puts 'Welcome to Tic Tac Toe! (Or Noughts and Crosses, the world cannot decide.)'
+  puts 'The board is laid out in this format:'
+  puts '123'
+  puts '456'
+  puts '789'
+  puts 'Good luck!'
+  puts
 
-puts 'Welcome to Tic Tac Toe! (Or Noughts and Crosses, the world cannot decide.)'
-puts 'The board is laid out in this format:'
-puts '123'
-puts '456'
-puts '789'
-puts 'Good luck!'
-puts
+  while game.check_endgame(board.board) == 'TBD'
+    puts "It is #{game.player}'s turn. Make your move."
+    game.move!(gets.chomp, board.board)
+    puts board.to_s
+  end
 
-while game.check_endgame(board.board) == 'TBD'
-  puts "It is #{game.player}'s turn. Make your move."
-  game.move!(gets.chomp, board.board)
-  puts board.to_s
-end
-
-case game.check_endgame(board.board)
-when 'X'
-  puts 'X wins!'
-when 'O'
-  puts 'O wins!'
-when 'draw'
-  puts 'It\'s a draw!'
+  case game.check_endgame(board.board)
+  when 'X'
+    puts 'X wins!'
+  when 'O'
+    puts 'O wins!'
+  when 'draw'
+    puts 'It\'s a draw!'
+  end
 end
